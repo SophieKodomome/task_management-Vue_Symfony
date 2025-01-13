@@ -24,7 +24,7 @@ class ProjectApiController extends AbstractController
 
     // Création avec groups ,serialization et validator (MapRequestPayload)
     #[Route("/api/projects", methods: "POST")]
-    //#[TokenRequired]
+    #[TokenRequired]
     public function create(
         #[MapRequestPayload(serializationContext: [
             'groups' => ['projects.create']
@@ -40,7 +40,7 @@ class ProjectApiController extends AbstractController
 
     // *[READ]*
     #[Route("/api/projects", methods: "GET")]
-    //#[TokenRequired]
+    #[TokenRequired]
     public function findAll(ProjectRepository $repository, Request $request)
     {
         $searchTitle = $request->query->get('search', '');
@@ -55,7 +55,7 @@ class ProjectApiController extends AbstractController
     }
 
     #[Route("/api/projects/{id}", methods: "GET", requirements: ['id' => Requirement::DIGITS])]
-    //#[TokenRequired]
+    #[TokenRequired]
     public function findById(Project $project)
     {
         return $this->json($project, 200, [], [
@@ -66,7 +66,7 @@ class ProjectApiController extends AbstractController
     // *[UPDATE]*
 
     #[Route("/api/projects/{id}", methods: "PUT")]
-    //#[TokenRequired]
+    #[TokenRequired]
     public function update(
         int $id,
         Request $request,
@@ -98,7 +98,7 @@ class ProjectApiController extends AbstractController
     // *[DELETE]*
 
     #[Route("/api/projects/{id}", methods: "DELETE")]
-    //#[TokenRequired]
+    #[TokenRequired]
     public function delete(
         int $id,
         DeleteService $deleteService,
