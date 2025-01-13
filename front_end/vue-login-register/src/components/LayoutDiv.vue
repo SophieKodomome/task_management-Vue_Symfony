@@ -4,6 +4,8 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">Learning App</a>
+                    <a class="navbar-brand" href="/dashboard">Project Dashoard</a>
+                    <a class="navbar-brand" href="/task/dashboard">Task Dashoard</a>
                     <div class="d-flex">
                         <ul class="navbar-nav">
                             <li class="nav-item">

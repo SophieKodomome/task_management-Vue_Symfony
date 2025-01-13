@@ -99,13 +99,18 @@
    },
    methods: {
       registerAction(){
+      const token = localStorage.getItem('token');
          this.isSubmitting = true
          let payload = {
              username:this.name,
              email: this.email,
              password: this.password,
          }
-         axios.post('/api/users', payload)
+         axios.post('/api/users', payload,{
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+         })
            .then(response => {
              localStorage.setItem('token', response.data.token)
              this.$router.push('/dashboard')
